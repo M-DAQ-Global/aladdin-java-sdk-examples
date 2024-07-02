@@ -61,7 +61,7 @@ fun syncFlow(client: AladdinClient){
         .transactionCcyType(pricingSheet.transactionCcyType)
         .requestedPricingRefId(pricingSheet.pricingReferenceId)
         .transactionType(TransactionType.SALE)
-        .paymentProvider("VISA")
+        .paymentProvider("VISA") //TIP this field should be given by M-DAQ, it is related to value/settlement date
         .transactionTimestamp(currentTime)
         .amount(BigDecimal(10))
         .build()
@@ -94,13 +94,16 @@ fun asyncFlow(client: AladdinClient) {
         .transactionCcyType(pricingSheet.transactionCcyType)
         .requestedPricingRefId(pricingSheet.pricingReferenceId)
         .transactionType(TransactionType.SALE)
-        .paymentProvider("VISA")
+        .paymentProvider("VISA") //TIP this field should be given by M-DAQ, it is related to value/settlement date
         .transactionTimestamp(currentTime)
         .amount(BigDecimal(10))
         .build()
 
     val adviceAsyncResponse = client.submitAdvicesAsync(listOf(adviceRequestAsync))
     println(adviceAsyncResponse)
+
+    // wait for aladdin to process the transaction
+    Thread.sleep(3000)
 
     //TIP Query advice status
     println("Querying advice status...")
@@ -135,7 +138,7 @@ fun requestWithInsufficientInfo(client: AladdinClient){
         .adviceType(AdviceType.OA)
         .ccyPair(pricingSheet.ccyPair)
         .transactionType(TransactionType.SALE)
-        .paymentProvider("VISA")
+        .paymentProvider("VISA") //TIP this field should be given by M-DAQ, it is related to value/settlement date
         .transactionTimestamp(currentTime)
         .amount(BigDecimal(10))
         .build()

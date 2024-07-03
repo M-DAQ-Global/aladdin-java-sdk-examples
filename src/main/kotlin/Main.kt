@@ -30,7 +30,6 @@ fun main() {
         .build()
 
     //TIP different flows here
-
     //    syncFlow(client)
     //    asyncFlow(client)
     //    getPricingSheetActiveForACertainTime(client)

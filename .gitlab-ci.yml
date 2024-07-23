@@ -1,0 +1,11 @@
+stages:
+    - deploy
+
+deploy:
+    stage: deploy
+    only:
+        - master
+    script:
+        - git config --add --local core.sshCommand "ssh -i $GITHUB_KEY"
+        - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
+        - git push github master

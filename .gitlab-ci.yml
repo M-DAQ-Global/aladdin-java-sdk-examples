@@ -17,5 +17,4 @@ deploy:
         - git config --global user.name "mdaq-techops-admin"
         - git checkout master
         - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
-        - git pull github main
-        - git push github master:main
+        - git push github master:main --force

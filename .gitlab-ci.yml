@@ -13,6 +13,5 @@ deploy:
         - git config --global user.email "mdaq-techops-admin@m-daq.com"
         - git config --global user.name "mdaq-techops-admin"
         - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
-        - git commit -m $CI_COMMIT_MESSAGE
-        - git add .
+        - git commit -m "$CI_COMMIT_MESSAGE"
 #        - git push github master

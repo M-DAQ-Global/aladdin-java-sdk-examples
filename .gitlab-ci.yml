@@ -1,3 +1,5 @@
+image: registry.m-daq.com/mdaq-docker-java11-helm-kubectl-gradle7
+
 stages:
     - deploy
 

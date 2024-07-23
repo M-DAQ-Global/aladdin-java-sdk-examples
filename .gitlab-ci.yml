@@ -5,8 +5,8 @@ stages:
 
 deploy:
     stage: deploy
-#    only:
-#        - master
+    only:
+        - master
     script:
         - ls
         - git config --add --local core.sshCommand "ssh -i $GITHUB_KEY"
@@ -14,5 +14,4 @@ deploy:
         - git config --global user.name "mdaq-techops-admin"
         - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
         - git show-ref
-#        - git commit -m "$CI_COMMIT_MESSAGE"
-#        - git push github master
+        - git push github main

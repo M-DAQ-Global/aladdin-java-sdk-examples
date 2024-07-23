@@ -11,6 +11,8 @@ deploy:
         - ls
         - git config --add --local core.sshCommand "ssh -i $GITHUB_KEY"
         - git add .
+        - git config --global user.email "mdaq-techops-admin@m-daq.com"
+        - git config --global user.name "mdaq-techops-admin"
         - git commit -m "Init commit"
         - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
 #        - git push github master

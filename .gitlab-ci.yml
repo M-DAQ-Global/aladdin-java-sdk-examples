@@ -15,5 +15,6 @@ deploy:
         - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
         - git config --global user.email "mdaq-techops-admin@m-daq.com"
         - git config --global user.name "mdaq-techops-admin"
+        - git checkout master
         - git remote add github git@github.com:M-DAQ-Global/aladdin-java-sdk-examples.git
         - git push github master:main
